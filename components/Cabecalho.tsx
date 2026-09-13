@@ -8,6 +8,7 @@ export default function Cabecalho(){
                 <Link href="/">Home</Link>
                 <Link href="/vagas">Vagas</Link>
                 <Link href="/sobre">Sobre</Link>
+                <Link href="/contato">Contato</Link>
             </nav>
         </header>
     );
