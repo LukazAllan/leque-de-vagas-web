@@ -1,5 +1,5 @@
 import "./globals.css";
-
+import Cabecalho from "@/components/Cabecalho"
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -10,7 +10,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <title>Document</title>
       </head>
       <body className="min-h-full flex flex-col">
-        <header>Leque de Vagas</header>
+        <Cabecalho />
         {children}
         <footer>© 2026</footer>
       </body>
