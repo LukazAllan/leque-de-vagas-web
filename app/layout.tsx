@@ -1,3 +1,4 @@
+import Rodape from "@/components/Rodape";
 import "./globals.css";
 import Cabecalho from "@/components/Cabecalho"
 
@@ -12,7 +13,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Cabecalho />
         {children}
-        <footer>© 2026</footer>
+        <Rodape />
       </body>
     </html>
   );
