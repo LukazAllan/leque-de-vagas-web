@@ -14,4 +14,4 @@ export default function ErroDaVaga({
       <button onClick={() => retry()}>Tentar de novo</button>
     </div>
   );
-}   
+}     
