@@ -1,36 +1,50 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { vagas } from "@/data/vagas";
+import { listarVagas, buscarVaga } from "@/lib/api";
+import DescricaoDaVaga from "@/components/DescricaodeVaga";
 
-// EXTRA: faz o título da aba virar o nome da vaga.
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}): Promise<Metadata> {
-  const { id } = await params;
-  const vaga = vagas.find((v) => v.id === id);
-  return { title: vaga ? `${vaga.titulo} · Leque de Vagas` : "Vaga não encontrada" };
+// Desde o Next 15, params é uma Promise. É por isso que ele leva await.
+type Props = { params: Promise<{ id: string }> }; 
+
+// ─── A LISTA DO QUE PRÉ-GERAR ──────────────────────────────────────────
+// O Next não tem como adivinhar QUAIS ids existem — a pasta [id] atende
+// infinitos endereços. Esta função conta. Ela roda UMA vez, no build.
+export async function generateStaticParams() {
+  const vagas = await listarVagas();
+
+  // A CHAVE tem que se chamar `id`, igual ao nome da pasta [id]. Nome
+  // errado não dá erro: simplesmente não gera nada, em silêncio.
+  // E o valor tem que ser TEXTO — endereço é texto.
+  return vagas.map((vaga) => ({ id: String(vaga.id) }));
 }
 
-export default async function PaginaDaVaga({params,}: {params: Promise<{ id: string }>;}) 
-{
-  const { id } = await params;//A função vai esperar pelo valor id
-  const vaga = vagas.find((v) => v.id === id);// Após, ele ultilza o valor e procura pela vaga.
-  if (!vaga) {notFound();}//Em caso de não encontrar ele dará error;
+// EXTRA: faz o título da aba virar o nome da vaga.
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const vaga = await buscarVaga(id);
 
-  return (<article className="vaga">
+  // Aqui NÃO se chama notFound(): quem decide isso é a página. Esta função
+  // só precisa devolver um título que não minta.
+  if (!vaga) return { title: "Vaga não encontrada · Leque de Vagas" };
+
+  return {
+    title: `${vaga.titulo} · ${vaga.empresa}`,
+    description: vaga.descricao.slice(0, 150),
+  };
+}
+
+export default async function PaginaDaVaga({ params }: Props) {
+  const { id } = await params;
+  const vaga = await buscarVaga(id);
+
+  // FRENTE 3: o id que não existe. notFound() não devolve nada — ele
+  // interrompe a renderização e entrega o not-found.tsx da aula 02.
+  if (!vaga) notFound();
+
+  return (
+    <article>
       <h1>{vaga.titulo}</h1>
-
-      <p>  <Link href={`/empresas/${vaga.empresaSlug}`}>{vaga.empresa}</Link>
-        {" · "}{vaga.area} · {vaga.senioridade} · {vaga.local}</p>
-
-      {vaga.aceitaIniciante && <p className="selo">Aceita quem está começando</p>}
-
-      <p>{vaga.descricao}</p>
-
-      <Link href="/vagas">← todas as vagas</Link>
+      <DescricaoDaVaga texto={vaga.descricao} />   {/* o "ver mais" da aula 03 */}
     </article>
   );
 }
