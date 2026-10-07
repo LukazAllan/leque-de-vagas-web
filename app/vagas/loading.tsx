@@ -1,8 +1,3 @@
-// Versão simples
-export default function Loading() {
-  return <p>Carregando vagas…</p>;
-}
-
 export default function Loading() {
   return ( //Esqueleto do site (Parte não renderizada que mostrará como ficará após carregamento)
     <ul className="lista">

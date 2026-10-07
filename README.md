@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Leque de Vagas
 
-## Getting Started
+**Um bom começo para o seu próximo passo.**
 
-First, run the development server:
+O Leque de Vagas é uma plataforma de oportunidades profissionais pensada para
+deixar a busca mais simples e acolhedora — inclusive para quem está começando a
+carreira. O projeto apresenta vagas por área, permite filtrar oportunidades e
+exibe os detalhes de cada anúncio.
+
+## Visão geral
+
+- Página inicial responsiva com apresentação do projeto e resumo das vagas.
+- Busca por título ou empresa.
+- Filtros de vagas por área.
+- Indicadores atualizados a partir dos dados disponíveis.
+- Páginas de detalhe da vaga e de oportunidades por empresa.
+- Navegação por páginas institucionais.
+
+## Tecnologias
+
+- [Next.js](https://nextjs.org/) 16 com App Router
+- [React](https://react.dev/) 19
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/) 4 e CSS global
+- [ESLint](https://eslint.org/)
+
+## Comece a usar
+
+### Requisitos
+
+- Node.js 20.9 ou superior
+- npm
+
+### Instalação
+
+Clone o repositório e instale as dependências:
+
+```bash
+git clone <url-do-repositorio>
+cd leque-de-vagas-web
+npm install
+```
+
+Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador. As alterações
+nos arquivos são refletidas automaticamente durante o desenvolvimento.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Comandos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Comando | Descrição |
+| --- | --- |
+| `npm run dev` | Inicia o servidor local de desenvolvimento. |
+| `npm run lint` | Executa o ESLint no projeto. |
+| `npm run build` | Gera a versão de produção. |
+| `npm run start` | Inicia o servidor para servir a versão compilada. |
 
-## Learn More
+Para testar a versão de produção localmente:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Rotas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Caminho | Conteúdo |
+| --- | --- |
+| `/` | Página inicial e mural de vagas. |
+| `/vagas` | Listagem de oportunidades. |
+| `/vagas/[id]` | Detalhes de uma vaga. |
+| `/empresa/[slug]` | Vagas associadas a uma empresa. |
+| `/sobre` | Informações sobre o projeto e sua equipe. |
+| `/contato` | Página de contato. |
+| `/termos` | Termos de uso. |
+| `/privacidade` | Política de privacidade. |
 
-## Deploy on Vercel
+## Estrutura do projeto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+app/
+  (institucional)/   Páginas institucionais e layout compartilhado
+  empresa/[slug]/    Vagas de uma empresa
+  vagas/             Listagem, detalhe e estados de carregamento/erro
+components/          Cabeçalho, rodapé, filtros e componentes de vagas
+data/                Dados de exemplo usados pela interface
+lib/                 Tipos e funções de acesso a dados
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Dados de vagas
+
+Os dados locais de exemplo ficam em [`data/vagas.ts`](./data/vagas.ts). Cada vaga
+usa os campos `id`, `titulo`, `empresa`, `empresaSlug`, `area`, `senioridade`,
+`local`, `aceitaIniciante` e `descricao`.
+
+O módulo [`lib/api.ts`](./lib/api.ts) contém funções para buscar vagas e empresas
+na fonte JSON configurada no próprio arquivo, com revalidação em cache. A
+interface inicial e as páginas de vagas usam atualmente o conjunto local em
+`data/vagas.ts`.
+
+## Desenvolvimento
+
+- Componentes reutilizáveis ficam em `components/`.
+- Rotas e layouts são definidos pela estrutura de diretórios dentro de `app/`.
+- Estilos compartilhados e responsivos ficam em `app/globals.css`.
+- Ao adicionar ou alterar uma vaga de exemplo, atualize `data/vagas.ts`.
+- Antes de enviar alterações, execute `npm run lint` e `npm run build`.
+
+## Licença
+
+Consulte o arquivo [`LICENSE`](./LICENSE) para os termos de uso e distribuição.
