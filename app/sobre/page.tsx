@@ -4,7 +4,7 @@ export default function Sobre(){
             <li>Allan Lucas</li>
             <li>Arthur Lobo</li>
             <li>Felipe Duarte</li>
-            <li>Kaike Araújo</li>
+            
         </ul>
     );
 }
