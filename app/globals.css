@@ -1,6 +1,18 @@
 @import "tailwindcss";
 
 :root {
+  --c0: #3B82F6;
+  --c1: #60A5FA;
+  --c2: #0F172A;
+  --c3: #1E2938;
+  --c4: #334155;
+  --c5: #1DB9B1;
+  --c6: #EF4444;
+  --c7: #0c1017;
+  --c8: #002C68;
+  --c9: #3B8ADE;
+  --c10: #207CDF;
+  --c11: #c6cfe2;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -14,8 +26,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--c7);
+    --foreground: var(--c11);
+  }
+  .cabecalho {
+    border-bottom: 2px solid var(--c11);
   }
 }
 
@@ -23,4 +38,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.cabecalho {
+  border-bottom: 2px solid var(--c11);
 }
