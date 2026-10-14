@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import type { Vaga } from "@/data/vagas";
+import type * as tipos from "@/lib/tipos";
 
 export default function AbasDaEmpresa({
   sobre,
   vagas,
 }: {
   sobre: string;
-  vagas: Vaga[];
+  vagas: tipos.Vaga[];
 }) {
   const [aba, setAba] = useState("sobre");
 
