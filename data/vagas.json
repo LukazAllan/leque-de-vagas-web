@@ -1,0 +1,90 @@
+[
+  {
+    "id": "1",
+    "titulo": "Pessoa Desenvolvedora Front-end Júnior",
+    "empresa": "Aurora Tech",
+    "empresaSlug": "aurora-tech",
+    "area": "Front-end",
+    "senioridade": "Júnior",
+    "local": "Remoto",
+    "aceitaIniciante": true,
+    "descricao": "Trabalhar com React e Next.js num time de produto."
+  },
+  {
+    "id": "2",
+    "titulo": "Analista de Dados Júnior",
+    "empresa": "Aurora Tech",
+    "empresaSlug": "aurora-tech",
+    "area": "Dados",
+    "senioridade": "Júnior",
+    "local": "Híbrido · Recife",
+    "aceitaIniciante": true,
+    "descricao": "SQL, planilhas e construção de painéis."
+  },
+  {
+    "id": "3",
+    "titulo": "Engenheiro de Software Pleno",
+    "empresa": "Aurora Tech",
+    "empresaSlug": "aurora-tech",
+    "area": "Backend",
+    "senioridade": "Pleno",
+    "local": "Remoto",
+    "aceitaIniciante": false,
+    "descricao": "Desenvolvimento de APIs com Node.js, TypeScript e PostgreSQL."
+  },
+  {
+    "id": "4",
+    "titulo": "Pessoa Desenvolvedora Mobile Pleno",
+    "empresa": "Nuvem Rosa",
+    "empresaSlug": "nuvem-rosa",
+    "area": "Mobile",
+    "senioridade": "Pleno",
+    "local": "Presencial · Olinda",
+    "aceitaIniciante": false,
+    "descricao": "Aplicativo em React Native com Expo, testes em Detox e pipeline de release."
+  },
+  {
+    "id": "5",
+    "titulo": "Analista de Dados Pleno",
+    "empresa": "Nuvem Rosa",
+    "empresaSlug": "nuvem-rosa",
+    "area": "Dados",
+    "senioridade": "Pleno",
+    "local": "Híbrido · Recife",
+    "aceitaIniciante": false,
+    "descricao": "Arquitetura de data pipelines, ETL e data warehousing na nuvem."
+  },
+  {
+    "id": "6",
+    "titulo": "Estágio em Desenvolvimento de Software",
+    "empresa": "TechNova Solutions",
+    "empresaSlug": "technova-solutions",
+    "area": "Front-end",
+    "senioridade": "Estágio",
+    "local": "Presencial · São Paulo",
+    "aceitaIniciante": true,
+    "descricao": "Trabalho com React e TypeScript em time de produto, com mentoria senior."
+  },
+  {
+    "id": "7",
+    "titulo": "Engenheiro DevOps Júnior",
+    "empresa": "TechNova Solutions",
+    "empresaSlug": "technova-solutions",
+    "area": "DevOps",
+    "senioridade": "Júnior",
+    "local": "Remoto",
+    "aceitaIniciante": true,
+    "descricao": "CI/CD com GitHub Actions, Kubernetes e Docker. Monitoramento de infraestrutura."
+  },
+  {
+    "id": "8",
+    "titulo": "Analista de Suporte Técnico",
+    "empresa": "TechNova Solutions",
+    "empresaSlug": "technova-solutions",
+    "area": "Suporte",
+    "senioridade": "Júnior",
+    "local": "Presencial · São Paulo",
+    "aceitaIniciante": true,
+    "descricao": "Primeiro nível de suporte ao cliente, resolução de incidentes e base de conhecimento."
+  }
+]

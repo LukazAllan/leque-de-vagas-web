@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "aurora-tech",
+    "nome": "Aurora Tech",
+    "sobre": "Empresa de tecnologia focada em desenvolvimento de software moderno, com forte cultura de mentoria e oportunidades para iniciantes.",
+    "site": "https://aurora.tech"
+  },
+  {
+    "slug": "nuvem-rosa",
+    "nome": "Nuvem Rosa",
+    "sobre": "Soluções em nuvem e infraestrutura, com presença em múltiplas cidades e programa de estágio estruturado.",
+    "site": "https://nuvemrosa.tech"
+  },
+  {
+    "slug": "technova-solutions",
+    "nome": "TechNova Solutions",
+    "sobre": "Criação de produtos digitais com interfaces modernas, ecossistema React e integração de profissionais juniores.",
+    "site": "https://technova.tech"
+  }
+]
