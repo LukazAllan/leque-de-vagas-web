@@ -1,7 +1,8 @@
+import { listarVagas } from "@/lib/api";
 import Link from "next/link";
-import { vagas } from "@/data/vagas";
 
-export default function ListaDeVagas() {
+export default async function ListaDeVagas() {
+  const vagas = await listarVagas();
   return (
     <ul>
       {vagas.map((vaga) => (

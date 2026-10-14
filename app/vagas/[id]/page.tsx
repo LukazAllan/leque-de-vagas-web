@@ -1,11 +1,12 @@
 import { notFound } from "next/navigation";
-import { vagas } from "@/data/vagas";
+import { listarVagas } from "@/lib/api";
 
 export default async function PaginaDaVaga({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
+  const vagas = await listarVagas();
   const { id } = await params;
   const vaga = vagas.find((v) => v.id === id);
 
