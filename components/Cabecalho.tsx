@@ -9,6 +9,7 @@ export default function Cabecalho() {
       </Link>
       <nav aria-label="Navegação principal">
         <Link href="/vagas">Vagas</Link>
+        <Link href="/empresas">Empresas</Link>
         <Link href="/sobre">Sobre</Link>
         <Link href="/contato">Contato</Link>
         <Link className="nav-cta" href="/vagas">Explorar vagas <span aria-hidden="true">↗</span></Link>

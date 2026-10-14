@@ -1,8 +1,9 @@
 import Link from "next/link";
 import MuralDeVagas from "@/components/MuralDeVagas";
-import { vagas } from "@/data/vagas";
+import { listarVagas } from "@/lib/api";
 
-export default function Home() {
+export default async function Home() {
+  const vagas = await listarVagas();
   const iniciantes = vagas.filter((vaga) => vaga.aceitaIniciante).length;
   const areas = new Set(vagas.map((vaga) => vaga.area)).size;
 

@@ -1,7 +1,8 @@
 import MuralDeVagas from "@/components/MuralDeVagas";
-import { vagas } from "@/data/vagas";
+import { listarVagas } from "@/lib/api";
 
-export default function Vagas() {
+export default async function Vagas() {
+  const vagas = await listarVagas();
   return (
     <>
       <h1>Encontre sua próxima oportunidade.</h1>

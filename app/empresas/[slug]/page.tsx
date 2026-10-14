@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
-import { vagas } from "@/data/vagas";
-import { empresas } from "@/data/empresas";
+import * as api from "@/lib/api";
 import AbasDaEmpresa from "@/components/AbasDaEmpresa";
 
 export default async function PaginaDaEmpresa({
@@ -8,7 +7,9 @@ export default async function PaginaDaEmpresa({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  // await params: igualzinho à aula 02. A fronteira não mudou isso.
+  const empresas = await api.listarEmpresas();
+  const vagas = await api.listarVagas();
+
   const { slug } = await params;
   const empresa = empresas.find((e) => e.slug === slug);
   if (!empresa) notFound();
