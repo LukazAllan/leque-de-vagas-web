@@ -2,6 +2,11 @@ import { notFound } from "next/navigation";
 import * as api from "@/lib/api";
 import AbasDaEmpresa from "@/components/AbasDaEmpresa";
 
+export async function generateStaticParams() {
+  const slug = await api.listarEmpresas();
+  return slug.map((empresa) => ({slug: empresa.slug}))
+}
+
 export default async function PaginaDaEmpresa({
   params,
 }: {

@@ -1,6 +1,11 @@
 import { notFound } from "next/navigation";
 import { listarVagas } from "@/lib/api";
 
+export async function generateStaticParams(){
+  const vagas = await listarVagas();
+  return vagas.map((vaga) => ({id: vaga.id}))
+}
+
 export default async function PaginaDaVaga({
   params,
 }: {
