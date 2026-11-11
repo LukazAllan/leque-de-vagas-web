@@ -1,6 +1,10 @@
 import Link from "next/link";
-import MuralDeVagas from "@/components/MuralDeVagas";
 import { listarVagas } from "@/lib/api";
+import { metadata } from "./layout";
+
+export async function generateMetadata() {
+  return metadata
+}
 
 export default async function Home() {
   const vagas = await listarVagas();
@@ -83,30 +87,13 @@ export default async function Home() {
         <p>Oportunidades reais para caminhos diferentes.</p>
       </section>
 
-      <section className="jobs-section" id="vagas">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">FEITAS PARA O SEU MOMENTO</p>
-            <h2>Um leque de possibilidades.</h2>
-            <p className="section-description">
-              Explore as vagas abertas e encontre uma que tenha a ver com você.
-            </p>
-          </div>
-          <span className="open-label">
-            <span className="caption-dot" />
-            {vagas.length} vagas abertas
-          </span>
-        </div>
-        <MuralDeVagas vagas={vagas} />
-      </section>
-
       <section className="closing-banner">
         <div className="closing-mark" aria-hidden="true">✳</div>
         <div>
           <p className="eyebrow">CADA CAMINHO É ÚNICO</p>
           <h2>Seu próximo passo pode ser hoje.</h2>
         </div>
-        <Link className="button button-light" href="#vagas">
+        <Link className="button button-light" href="/vagas">
           Ver oportunidades <span aria-hidden="true">↗</span>
         </Link>
       </section>

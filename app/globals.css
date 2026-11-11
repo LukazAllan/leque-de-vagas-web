@@ -577,6 +577,43 @@ input {
   line-height: 1.5;
 }
 
+
+.cardEsqueleto {
+  position: relative;
+  min-width: 0;
+  padding: 21px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--surface);
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.cardEsqueleto:hover {
+  transform: translateY(-2px);
+  border-color: #cbd9c9;
+  box-shadow: 0 10px 26px rgb(28 58 43 / 6%);
+}
+
+.cardEsqueleto > a {
+  display: grid;
+  gap: 9px;
+  padding-right: 4px;
+  color: var(--foreground);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.cardEsqueleto > a span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 .selo {
   display: inline-flex;
   width: fit-content;
@@ -711,6 +748,168 @@ footer {
 .texto-legal li {
   color: var(--muted);
   line-height: 1.8;
+}
+
+.form-vaga-page {
+  width: min(760px, 100%);
+  margin: 0 auto;
+}
+
+.form-vaga-eyebrow {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+.form-vaga-page > h1 {
+  margin: 0;
+  font-size: clamp(36px, 5vw, 52px);
+  letter-spacing: -2px;
+  line-height: 1.08;
+}
+
+.form-vaga-intro {
+  max-width: 600px;
+  margin: 13px 0 30px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.form-vaga {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 16px 40px rgb(28 58 43 / 5%);
+}
+
+.form-vaga-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 21px 18px;
+}
+
+.form-vaga-field {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  color: var(--foreground);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.form-vaga-field-wide {
+  grid-column: 1 / -1;
+}
+
+.form-vaga-field input,
+.form-vaga-field select,
+.form-vaga-field textarea {
+  width: 100%;
+  min-height: 49px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  outline: none;
+  background: #fff;
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 400;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.form-vaga-field textarea {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.form-vaga-field input::placeholder,
+.form-vaga-field textarea::placeholder {
+  color: #9aa49c;
+}
+
+.form-vaga-field input:focus,
+.form-vaga-field select:focus,
+.form-vaga-field textarea:focus {
+  border-color: #8bbd61;
+  box-shadow: 0 0 0 3px rgb(139 189 97 / 17%);
+}
+
+.form-vaga-field small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.form-vaga-feedback {
+  margin: 20px 0 0;
+  color: var(--green);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.form-vaga-feedback-error {
+  padding-left: 20px;
+  color: #a33a32;
+}
+
+.form-vaga-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-top: 23px;
+  color: #526159;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.form-vaga-checkbox input {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  margin: 0;
+  accent-color: var(--green);
+}
+
+.form-vaga-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 27px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.form-vaga-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.form-vaga-footer button {
+  border: 0;
+  cursor: pointer;
+}
+
+.form-vaga-footer button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.form-vaga-footer button span {
+  font-size: 18px;
+  line-height: 1;
 }
 
 .aviso {
@@ -956,6 +1155,28 @@ footer {
 
   .button-light {
     margin-left: 58px;
+  }
+
+  .form-vaga {
+    padding: 22px;
+  }
+
+  .form-vaga-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .form-vaga-field-wide {
+    grid-column: auto;
+  }
+
+  .form-vaga-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .form-vaga-footer .button {
+    width: 100%;
   }
 
   .footer-links {
