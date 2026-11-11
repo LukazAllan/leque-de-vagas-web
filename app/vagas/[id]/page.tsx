@@ -1,6 +1,11 @@
 import { notFound } from "next/navigation";
 import { listarVagas } from "@/lib/api";
 
+export async function generateStaticParams(){
+  const vagas = await listarVagas();
+  return vagas.map((vaga) => ({id: vaga.id}))
+}
+
 export default async function PaginaDaVaga({
   params,
 }: {
@@ -15,10 +20,15 @@ export default async function PaginaDaVaga({
   }
 
   return (
-    <article>
-      <h1>{vaga.titulo}</h1>
-      <p>{vaga.empresa} · {vaga.local}</p>
-      <p>{vaga.descricao}</p>
-    </article>
+
+    <section className="area-vagas">
+      <p className="secao">Vagas abertas</p>
+      <article>
+        <h1>{vaga.titulo}</h1>
+        <p>{vaga.empresa} · {vaga.local}</p>
+        <p>{vaga.descricao}</p>
+      </article>
+    </section>
+    
   );
 }
